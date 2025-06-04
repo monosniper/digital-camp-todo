@@ -1,0 +1,194 @@
+@use "vars" as *;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.todo-form {
+	width: 80vw;
+	max-width: 900px;
+	background: $input-bg;
+	padding: 1.5rem 2rem;
+	border-radius: $radius;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+	margin-bottom: 2rem;
+	box-sizing: border-box;
+	
+	.form-group {
+		margin-bottom: 1.2rem;
+		
+		label {
+			display: block;
+			margin-bottom: 0.4rem;
+			font-weight: 600;
+			font-size: 1rem;
+			color: $text-color;
+		}
+		
+		input,
+		textarea {
+			width: 100%;
+			padding: 0.6rem 0.8rem;
+			border-radius: $radius;
+			border: 1px solid $border-color;
+			background: $bg-color;
+			color: $text-color;
+			font-size: 1rem;
+			transition: border-color 0.2s ease;
+			
+			&:focus {
+				outline: none;
+				border-color: $accent-color;
+			}
+		}
+		
+		textarea {
+			resize: vertical;
+			min-height: 80px;
+		}
+		
+		&.checkbox {
+			display: flex;
+			align-items: center;
+			
+			label {
+				margin: 0;
+				font-weight: normal;
+				cursor: pointer;
+				
+				input {
+					margin-right: 0.5rem;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	
+	button {
+		width: 100%;
+		padding: 0.75rem;
+		font-size: 1.1rem;
+		font-weight: 700;
+		border: none;
+		border-radius: $radius;
+		background-color: $accent-color;
+		color: white;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+		
+		&:hover {
+			background-color: darken($accent-color, 10%);
+		}
+	}
+}
+
+
+body {
+	background: $bg-color;
+	color: $text-color;
+	font-family: 'Montserrat', sans-serif;
+	padding: 2rem;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 2.5rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	width: 100%;
+}
+
+.todo-list {
+	list-style: none;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.deadline {
+	margin-top: 0.5rem;
+	font-size: 0.85rem;
+	color: lighten($text-color, 40%);
+	font-style: italic;
+}
+
+
+
+.todo-item {
+	background: $input-bg;
+	padding: 1rem 1.5rem;
+	border-radius: $radius;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: background 0.3s ease;
+	
+	&.done {
+		opacity: 0.6;
+		text-decoration: line-through;
+	}
+	
+	.content {
+		flex-grow: 1;
+		margin-right: 1rem;
+		overflow-wrap: anywhere;
+		
+		.title {
+			font-size: 1.2rem;
+			font-weight: 600;
+			margin-bottom: 0.3rem;
+		}
+		
+		.description {
+			font-size: 0.9rem;
+			color: lighten($text-color, 30%);
+			margin-bottom: 0;
+		}
+	}
+	
+	.actions {
+		display: flex;
+		gap: 0.5rem;
+		
+		form {
+			margin: 0;
+			
+			button {
+				background: $accent-color;
+				border: none;
+				color: #fff;
+				padding: 0.5rem 0.8rem;
+				border-radius: $radius;
+				cursor: pointer;
+				font-size: 1.1rem;
+				transition: background 0.2s ease;
+				
+				&:hover {
+					background: darken($accent-color, 10%);
+				}
+			}
+		}
+	}
+}
+
+/* Адаптив */
+@media (max-width: 640px) {
+	body {
+		padding: 1rem;
+	}
+	
+	h1 {
+		font-size: 2rem;
+	}
+	
+	.todo-list {
+		max-width: 100%;
+	}
+}

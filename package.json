@@ -1,0 +1,24 @@
+{
+  "name": "digital-camp-todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monosniper/digital-camp-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monosniper/digital-camp-todo/issues"
+  },
+  "homepage": "https://github.com/monosniper/digital-camp-todo#readme",
+  "description": "",
+  "devDependencies": {
+    "sass-embedded": "^1.89.1",
+    "vite": "^6.3.5"
+  }
+}
